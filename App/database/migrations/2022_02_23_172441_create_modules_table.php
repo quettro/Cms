@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateModulesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('modules', function (Blueprint $table) {
+            $table->id();
+            $table->string('key');
+            $table->string('name');
+            $table->string('dateformat');
+            $table->string('timeformat');
+            $table->string('type');
+            $table->string('route')->nullable();
+            $table->string('child_route')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('modules');
+    }
+}
